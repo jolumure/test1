@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<themes>
+  <!--Manzana-->
+  <theme>
+    <category>Cartografía Catastral</category>
+    <type>polygon</type>
+    <name>Manzana</name>
+    <levels>
+      <level>Manzana</level>
+      <level>No_manzana</level>
+    </levels>
+    <entity>eg_manzana</entity>
+  </theme>
+
+  <!--Manzana Clave-->
+  <theme>
+    <category>Cartografía Catastral</category>
+    <type>point</type>
+    <name>Manzana Clave</name>
+    <levels>
+      <level>No_manzana</level>
+    </levels>
+    <entity>eg_manzana_clave</entity>
+  </theme>
+
+  <!--Predio-->
+  <theme>
+    <category>Cartografía Catastral</category>
+    <type>polygon</type>
+    <name>Predio</name>
+    <levels>
+      <level>Manzana</level>
+      <level>Predio</level>
+      <level>No_predio</level>
+    </levels>
+    <entity>eg_predio</entity>
+  </theme>
+
+  <!--Predio Clave-->
+  <theme>
+    <category>Cartografía Catastral</category>
+    <type>point</type>
+    <name>Predio Clave</name>
+    <levels>
+      <level>No_predio</level>
+    </levels>
+    <entity>eg_predio_clave</entity>
+  </theme>
+
+  <!--Número Oficial-->
+  <theme>
+    <category>Cartografía Catastral</category>
+    <type>point</type>
+    <name>Número Oficial</name>
+    <levels>
+      <level>NoOficialPredio</level>
+    </levels>
+    <entity>eg_predio_numof</entity>
+  </theme>
+
+  <!--Construcción-->
+  <theme>
+    <category>Cartografía Catastral</category>
+    <type>polygon</type>
+    <name>Construcción</name>
+    <levels>
+      <level>Manzana</level>
+      <level>Predio</level>
+      <level>Construccion</level>
+      <level>No_niveles</level>
+      <level>ConstEsp</level>
+      <level>ClaveConstEsp</level>
+    </levels>
+    <entity>eg_construccion</entity>
+  </theme>
+
+  <!--Construcción Clave-->
+  <theme>
+    <category>Cartografía Catastral</category>
+    <type>point</type>
+    <name>Construcción Clave</name>
+    <levels>
+      <level>No_niveles</level>
+      <level>ClaveConstEsp</level>
+    </levels>
+    <entity>eg_construccion_clave</entity>
+  </theme>
+
+  
+  <!-- /*****************************FIN CARTOGRAFÍA CATASTRAL ***************************/-->
+
+  <!--CondominiosH-->
+ 
+  <theme>
+    <category>Cartografía X </category>
+    <type>polygon</type>
+    <name>CondominiosH</name>
+    <levels>
+      <level>Nivel 6</level>
+      <level>Nivel 7</level>
+      <level>Nivel 18</level>
+      <level>Nivel 19</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+
+  <!--Número Oficial condominio-->
+
+  <theme>
+    <category>Cartografía X </category>
+    <type>point</type>
+    <name>Número Oficial Condominio</name>
+    <levels>
+      <level>Nivel 20</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  
+  <!--Delegación-->
+
+  <theme>
+    <category>Cartografía X </category>
+    <type>polygon</type>
+    <name>Delegación</name>
+    <levels>
+      <level>Nivel 30</level>
+      <level>Nivel 31</level>
+      <level>Nivel 32</level>
+    </levels>
+    <entity>15</entity>
+  </theme>  
+
+
+  <!--Delegación Clave-->
+
+  <theme>
+    <category>Cartografía X </category>
+    <type>point</type>
+    <name>Delegación Clave</name>
+    <levels>
+      <level>Nivel 32</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+
+
+  <!--Colonia-->
+
+  <theme>
+    <category>Cartografía X </category>
+    <type>polygon</type>
+    <name>Colonia</name>
+    <levels>
+      <level>Nivel 30</level>
+      <level>Nivel 31</level>
+      <level>Nivel 33</level>
+      <level>Nivel 41</level>
+      <level>Nivel 42</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  
+  <!-- /*****************************FIN CARTOGRAFÍA X ***************************/-->
+  
+  <!--Colonia Clave-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>point</type>
+    <name>Colonia Clave</name>
+    <levels>
+      <level>Nivel 42</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+  <!--Calle-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>line</type>
+    <name>Calle</name>
+    <levels>
+      <level>Nivel 43</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+  
+  <!--Calle Clave-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>point</type>
+    <name>Calle Clave</name>
+    <levels>
+      <level>Nivel 44</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+  <!--Admin Tributaria-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>polygon</type>
+    <name>Admin Tributaria</name>
+    <levels>
+      <level>Nivel 53</level>
+      <level>Nivel 34</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+  <!--Admin Tributaria Clave-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>point</type>
+    <name>Admin Tributaria Clave</name>
+    <levels>
+      <level>Nivel 34</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+    -->
+
+  <!--Área de valor-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>polygon</type>
+    <name>Área de valor</name>
+    <levels>
+      <level>Nivel 55</level>
+      <level>Nivel 38</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+  <!--Área de valor Clave-->
+  <!-- 
+  <theme>
+    <category>basica</category>
+    <type>point</type>
+    <name>Área de valor Clave</name>
+    <levels>
+      <level>Nivel 38</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+  
+  <!--Índice cartográfico-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>polygon</type>
+    <name>Índice cartográfico</name>
+    <levels>
+      <level>Nivel 1</level>
+      <level>Nivel 2</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+
+  <!--Índice cartográfico clave-->
+  <!--
+  <theme>
+    <category>basica</category>
+    <type>point</type>
+    <name>Índice cartográfico Clave</name>
+    <levels>
+      <level>Nivel 2</level>
+    </levels>
+    <entity>15</entity>
+  </theme>
+  -->
+</themes>
+
+

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60E4C3CD-0DAD-4E3A-97F6-C6D0CCB53C7F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PresentacionWFA</RootNamespace>
+    <AssemblyName>PresentacionWFA</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bentley.Geospatial.Interop.XFT">
+      <HintPath>refBentley\Bentley.Geospatial.Interop.XFT.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Bentley.Interop.GFC">
+      <HintPath>refBentley\Bentley.Interop.GFC.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Bentley.Interop.GFC.CachedProject">
+      <HintPath>refBentley\Bentley.Interop.GFC.CachedProject.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="bentley.interop.microstationdgn">
+      <HintPath>refBentley\bentley.interop.microstationdgn.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.0.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>refBentley\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.13.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GDB, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GDB.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools, Version=1.13.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.SpatiaLite, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SpatiaLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\EPSGController.cs" />
+    <Compile Include="Controller\filesController.cs" />
+    <Compile Include="Controller\levelsController.cs" />
+    <Compile Include="Controller\SQLFormatController.cs" />
+    <Compile Include="Controller\UstnController.cs" />
+    <Compile Include="Data\themes.cs" />
+    <Compile Include="Entity_temp\Coord2dEntity.cs" />
+    <Compile Include="Entity_temp\DgnFileEntity.cs" />
+    <Compile Include="Entity_temp\EPSGEntity.cs" />
+    <Compile Include="Entity_temp\LineEntity.cs" />
+    <Compile Include="Entity_temp\PointTextEntity.cs" />
+    <Compile Include="Extractor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extractor.Designer.cs">
+      <DependentUpon>Extractor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WCFServSiGeMun\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Extractor.resx">
+      <DependentUpon>Extractor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.wsdl" />
+    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FL\FL.csproj">
+      <Project>{5879f580-24b9-4071-abf3-9647734b48a8}</Project>
+      <Name>FL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\categoriesNames.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\levelNames.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="refBentley\Ionic.Zip.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.XML" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\Microsoft.SqlServer.Types.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GDB.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GDB.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GeoTools.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GeoTools.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.MsSqlSpatial.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.MsSqlSpatial.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.PostGis.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.PostGis.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.ShapeFile.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.ShapeFile.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SpatiaLite.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SpatiaLite.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SqlServer2008.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SqlServer2008.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.pdb" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.XML" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\PowerCollections.dll" />
+    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\PowerCollections.XML" />
+    <Content Include="refBentley\Standalone\Bentley.Interop.GFC.CachedProject.dll" />
+    <Content Include="refBentley\Standalone\Bentley.Interop.GFC.dll" />
+    <Content Include="refBentley\Standalone\bentley.interop.microstationdgn.dll" />
+    <Content Include="refBentley\Standalone\Bentley.Interop.Xft.dll" />
+    <Content Include="refBentley\Standalone\xfmcore.dll" />
+    <None Include="Service References\WCFServSiGeMun\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WCFServSiGeMun\configuration.svcinfo" />
+    <None Include="Service References\WCFServSiGeMun\configuration91.svcinfo" />
+    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCFServSiGeMun\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

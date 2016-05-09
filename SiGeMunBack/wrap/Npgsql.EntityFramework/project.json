@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../../../../../Program Files/PostgreSQL/Npgsql/ms.net45/Npgsql.EntityFramework.dll",
+        "pdb": "../../../../../../Program Files/PostgreSQL/Npgsql/ms.net45/Npgsql.EntityFramework.pdb"
+      },
+      "dependencies": {
+        "Npgsql": "1.0.0-*"
+      }
+    }
+  }
+}

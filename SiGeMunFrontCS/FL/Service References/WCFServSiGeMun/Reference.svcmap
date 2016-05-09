@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7e4c47f1-a868-4dbb-8b1a-4086fdca90b7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63646/WcfServSiGeMun.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WcfServSiGeMun.xsd" MetadataType="Schema" ID="85652577-68bd-48e8-b11d-666adf7e64fc" SourceId="1" SourceUrl="http://localhost:63646/WcfServSiGeMun.svc?xsd=xsd0" />
+    <MetadataFile FileName="WcfServSiGeMun1.xsd" MetadataType="Schema" ID="7f5047d7-68ad-400c-b222-9d003883ede6" SourceId="1" SourceUrl="http://localhost:63646/WcfServSiGeMun.svc?xsd=xsd1" />
+    <MetadataFile FileName="WcfServSiGeMun2.xsd" MetadataType="Schema" ID="de972b25-c267-4cf8-9cfd-c75a72612b89" SourceId="1" SourceUrl="http://localhost:63646/WcfServSiGeMun.svc?xsd=xsd2" />
+    <MetadataFile FileName="WcfServSiGeMun.wsdl" MetadataType="Wsdl" ID="b47cd738-dfdc-49dd-9137-e5bf1f2e67c0" SourceId="1" SourceUrl="http://localhost:63646/WcfServSiGeMun.svc?wsdl" />
+    <MetadataFile FileName="WcfServSiGeMun.disco" MetadataType="Disco" ID="5c9fd8d2-bb45-4c12-a701-ab19745f6766" SourceId="1" SourceUrl="http://localhost:63646/WcfServSiGeMun.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

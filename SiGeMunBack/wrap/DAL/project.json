@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../DAL/DAL.csproj",
+      "bin": {
+        "assembly": "../../DAL/obj/{configuration}/DAL.dll",
+        "pdb": "../../DAL/obj/{configuration}/DAL.pdb"
+      },
+      "dependencies": {
+        "Ionic.Zip": "1.0.0-*",
+        "Npgsql": "1.0.0-*",
+        "Npgsql.EntityFramework": "1.0.0-*"
+      }
+    }
+  }
+}

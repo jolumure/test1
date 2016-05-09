@@ -1,0 +1,5 @@
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Entity\bin\Debug\Entity.dll
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Entity\bin\Debug\Entity.pdb
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Entity\obj\Debug\Entity.dll
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Entity\obj\Debug\Entity.pdb

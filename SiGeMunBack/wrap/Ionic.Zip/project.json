@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../DAL/StatRef/Ionic.Zip.dll"
+      }
+    }
+  }
+}

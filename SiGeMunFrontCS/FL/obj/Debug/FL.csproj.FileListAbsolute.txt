@@ -1,0 +1,8 @@
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\bin\Debug\FL.dll.config
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\bin\Debug\FL.dll
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\bin\Debug\FL.pdb
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\bin\Debug\HTTPService.dll
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\bin\Debug\HTTPService.pdb
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\obj\Debug\FL.csprojResolveAssemblyReference.cache
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\obj\Debug\FL.dll
+C:\proys\sigemun\sigemun-Jeciel\SiGeMunFrontCS\FL\obj\Debug\FL.pdb
