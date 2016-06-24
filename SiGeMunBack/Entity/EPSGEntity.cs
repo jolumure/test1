@@ -10,5 +10,10 @@ namespace Entity
     {
         public int epsg { get; set; }
         public string texto { get; set; }
+
+        public override string ToString()
+        {
+            return this.epsg + "    " + this.texto;
+        }
     }
 }

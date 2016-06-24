@@ -7,6 +7,21 @@
         "assembly": "../../Entity/obj/{configuration}/Entity.dll",
         "pdb": "../../Entity/obj/{configuration}/Entity.pdb"
       }
+    },
+    "net452": {
+      "wrappedProject": "../../Entity/Entity.csproj",
+      "bin": {
+        "assembly": "../../Entity/obj/{configuration}/Entity.dll",
+        "pdb": "../../Entity/obj/{configuration}/Entity.pdb"
+      },
+      "dependencies": {
+        "DotSpatial.GeoAPI": "1.7.4.2",
+        "DotSpatial.NetTopologySuite": "1.14.2",
+        "DotSpatial.Projections": "1.9",
+        "GeoAPI": "1.7.4",
+        "NetTopologySuite": "1.14",
+        "NetTopologySuite.IO": "1.14.0.1"
+      }
     }
   }
 }

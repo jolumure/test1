@@ -11,7 +11,11 @@ namespace WASiGeMun.Controllers
 {
     public class HomeController : Controller
     {
-        private IWcfServSiGeMun servicio;
+        public IActionResult Index()
+        {
+            return View();
+        }
+        /*private IWcfServSiGeMun servicio;
 
         public HomeController(IWcfServSiGeMun servicio)
         {
@@ -26,18 +30,21 @@ namespace WASiGeMun.Controllers
         [Route("InsertScript")]
         public string InsertScript([FromBody]Byte[] file)
         {
-            string archivoS;
+            bool respuesta = false;
             try
             {
-                Stream s = new MemoryStream(new ByteConverter().getByteArray(Request.Body, out archivoS));
-                this.servicio.InsertScript(s);
+                Stream s = new MemoryStream(new ByteConverter().getByteArray(Request.Body, (long)Request.ContentLength));
+                respuesta = this.servicio.InsertScript(s);
             }
             catch (Exception e)
             {
                 return e.Message;
             }
 
-            return archivoS;
+            if(respuesta == false)
+                return "False";
+
+            return respuesta.ToString();
         }
 
         [HttpGet]
@@ -47,7 +54,7 @@ namespace WASiGeMun.Controllers
             try
             {
                 if (p1 != "" && p2 != "")
-                    return this.servicio.getEPSG(p1, p2);
+                    return this.servicio.getEPSG(p1, p2).ToString();
             }
             catch (Exception e)
             {
@@ -55,7 +62,7 @@ namespace WASiGeMun.Controllers
             }
 
             return p1 + p2;
-        }
+        }*/
 
     }
 }

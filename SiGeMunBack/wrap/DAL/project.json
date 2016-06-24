@@ -1,16 +1,23 @@
 {
   "version": "1.0.0-*",
   "frameworks": {
-    "net451": {
+    "net452": {
       "wrappedProject": "../../DAL/DAL.csproj",
       "bin": {
         "assembly": "../../DAL/obj/{configuration}/DAL.dll",
         "pdb": "../../DAL/obj/{configuration}/DAL.pdb"
       },
       "dependencies": {
+        "Npgsql": "3.1.2",
+        "Entity": "1.0.0-*",
         "Ionic.Zip": "1.0.0-*",
-        "Npgsql": "1.0.0-*",
-        "Npgsql.EntityFramework": "1.0.0-*"
+        "Newtonsoft.Json": "8.0.3",
+        "DotSpatial.GeoAPI": "1.7.4.1",
+        "DotSpatial.NetTopologySuite": "1.14.2",
+        "DotSpatial.Projections": "1.9",
+        "GeoAPI": "1.7.4",
+        "NetTopologySuite": "1.14",
+        "NetTopologySuite.IO": "1.14.0.1"
       }
     }
   }

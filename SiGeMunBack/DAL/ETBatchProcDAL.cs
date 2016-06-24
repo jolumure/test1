@@ -6,9 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using Npgsql;
-using NpgsqlTypes;
 using System.Threading;
+using Npgsql;
 
 namespace DAL
 {
@@ -21,7 +20,7 @@ namespace DAL
             this.cs = cs;
         }
 
-        public long insertScript(Stream fileZip)
+        public bool insertScript(Stream fileZip)
         {
             try
             {
@@ -47,21 +46,21 @@ namespace DAL
                         {
 
                         }, ts);
-                        return 1;
+                        return true;
                     }
                     else
                     {
-                        return 0;
+                        return false;
                     }
                 }
                 else
                 {
-                    return 0;
+                    return false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return 0;
+                return false;
             }
         }
 
@@ -98,30 +97,38 @@ namespace DAL
         private static void processArray(string cs, string[] src, string carta)
         {
             string v_src = String.Join(";", src);
-            using (var conn = new Npgsql.NpgsqlConnection(cs))
+            try
             {
-                conn.Open();
-                using (var tran = conn.BeginTransaction())
+                using (var conn = new Npgsql.NpgsqlConnection(cs))
                 {
-                    using (var comm = conn.CreateCommand())
+                    conn.Open();
+                    using (var tran = conn.BeginTransaction())
                     {
-                        comm.Parameters.Add(new NpgsqlParameter("src", v_src));
-                        comm.Parameters.Add(new NpgsqlParameter("dgn", carta));
-                        comm.CommandText = "insert into et_batch_proc(script, carta) values(:src,:dgn)";
-                        comm.ExecuteNonQuery();
+                        using (var comm = conn.CreateCommand())
+                        {
+                            comm.Parameters.Add(new NpgsqlParameter("src", v_src));
+                            comm.Parameters.Add(new NpgsqlParameter("dgn", carta));
+                            comm.CommandText = "insert into et_batch_proc(script, carta) values(:src,:dgn)";
+                            comm.ExecuteNonQuery();
+                        }
+                        tran.Commit();
                     }
-                    tran.Commit();
-                }
-                using (var tran1 = conn.BeginTransaction())
-                {
-                    using (var comm1 = conn.CreateCommand())
+                    using (var tran1 = conn.BeginTransaction())
                     {
-                        comm1.CommandText = "select pkg__string_to_qry_void(s.carta, s.script,';') from et_batch_proc s where trim(s.carta)= '" + carta + "' order by s.id desc limit 1";
-                        comm1.ExecuteNonQuery();
+                        using (var comm1 = conn.CreateCommand())
+                        {
+                            comm1.CommandText = "select pkg__string_to_qry_void(s.carta, s.script,';') from et_batch_proc s where trim(s.carta)= '" + carta + "' order by s.id desc limit 1";
+                            comm1.ExecuteNonQuery();
+                        }
+                        tran1.Commit();
                     }
-                    tran1.Commit();
+                    conn.Close();
                 }
-                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
             }
             return;
         }
@@ -163,8 +170,9 @@ namespace DAL
                     return null;
                 }
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return null;
             }
         }

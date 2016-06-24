@@ -20,7 +20,9 @@
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final"
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final" 
   },
 
   "commands": {
@@ -28,13 +30,12 @@
   },
 
   "frameworks": {
-    "dnx451": {
+    "dnx452": {
       "dependencies": {
         "BLL": "1.0.0-*",
         "Entity": "1.0.0-*"
       },
       "frameworkAssemblies": {
-        "System.Web": "4.0.0.0"
       }
     }
   },

@@ -1,4 +1,6 @@
 ﻿using BLL;
+using Entity;
+using Microsoft.AspNet.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,9 +11,9 @@ namespace WASiGeMun.Services
 {
     public class WcfServSiGeMun : IWcfServSiGeMun
     {
-        public long InsertScript(Stream file)
+        public bool InsertScript(Stream file)
         {
-            long lst;
+            bool lst;
             string cs = Startup.ConnectionString;
             if (cs != null && cs != "")
             {
@@ -21,11 +23,11 @@ namespace WASiGeMun.Services
             }
             else
             {
-                return 0L;
+                return false;
             }
         }
 
-        public string getEPSG(string concepto, string texto)
+        public IEPSGRepository getEPSG(string concepto, string texto)
         {
             string cs = Startup.ConnectionString;
             if (cs != null && cs != "")
@@ -35,7 +37,56 @@ namespace WASiGeMun.Services
             }
             else
             {
-                return "";
+                return null;
+            }
+        }
+
+        public IEnumerable<LogEntity> getLog()
+        {
+            string cs = Startup.ConnectionString;
+            if (cs != null && cs != "")
+            {
+                Log obj = new Log(cs);
+                return obj.getLog();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public SHPInfo getShpInfo(string localPath)
+        {
+            try
+            { 
+                ETShpInfoBLL obj = new ETShpInfoBLL();
+                return obj.getShpInfo(localPath);
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public SHPInfo putshp(string localPath, string nombreFature, string EPSGOrig, string EPSGDest)
+        {
+            try
+            {
+                string cs = Startup.ConnectionString;
+                if (cs != null && cs != "")
+                {
+                    ETShpInfoBLL obj = new ETShpInfoBLL();
+                    return obj.setShp(cs,localPath, nombreFature, EPSGOrig, EPSGDest);
+                }
+                else
+                {
+                    return null;
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }

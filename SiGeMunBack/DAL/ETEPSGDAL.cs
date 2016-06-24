@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Entity;
+using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
@@ -22,58 +23,58 @@ namespace DAL
             this.cs = cs;
         }
 
-        public string getEPSG(string concepto, string texto)
+        public IEPSGRepository getEPSG(string concepto, string texto)
         {
-            string resultado = "";
-            try
+            IEPSGRepository resultado = new EPSGRepository();
+            if (concepto != "" && texto != "" && this.cs != string.Empty)
             {
-                if (concepto != "" && texto != "" && this.cs != string.Empty)
+                using (var conn = new NpgsqlConnection(this.cs))
                 {
-                    using (var conn = new Npgsql.NpgsqlConnection(this.cs))
+                    conn.Open();
+                    using (var comm = conn.CreateCommand())
                     {
-                        conn.Open();
-                        using (var comm = conn.CreateCommand())
-                        {
-                            comm.CommandText = crearComando(concepto);
-                            //comm.CommandType = System.Data.CommandType.StoredProcedure;
-                            comm.Parameters.Add(new NpgsqlParameter());
-                            comm.Parameters[0].NpgsqlDbType = NpgsqlDbType.Text;
-                            comm.Parameters[0].Value = texto;
-                            comm.Parameters[0].ParameterName = "n";
+                        comm.CommandText = crearComando(concepto, texto);
+                        //comm.CommandType = System.Data.CommandType.StoredProcedure;
+                        comm.Parameters.Add(new NpgsqlParameter());
+                        comm.Parameters[0].NpgsqlDbType = NpgsqlDbType.Text;
+                        comm.Parameters[0].Value = texto;
+                        comm.Parameters[0].ParameterName = "n";
 
-                            using (NpgsqlDataReader resQuery = comm.ExecuteReader())
-                                while (resQuery.Read())
-                                    resultado += string.Format("{0}\t{1} \n", resQuery[0], resQuery[1]);
-                        }
-                        //tran.Commit();                  
-                        conn.Close();
+                        using (NpgsqlDataReader resQuery = comm.ExecuteReader())
+                            while (resQuery.Read())
+                                resultado.Add(new EPSGEntity { epsg = (Int32)resQuery[0], texto = resQuery[1].ToString() });
                     }
+                    //tran.Commit();                  
+                    conn.Close();
                 }
-                return resultado;
             }
-            catch (Exception e)
-            {
-                return e.Message;
-            }
+            return resultado;
+
         }
 
-        private string crearComando(string tipo)
+        private string crearComando(string tipo, string texto)
         {
+            string first = "SELECT srid, trim(BOTH '\"' FROM trim(substring(srtext, position('[' in srtext)+1, position(',' in srtext)- position('[' in srtext)-1))) FROM spatial_ref_sys WHERE";
             string respuesta = "";
             if (tipo != "")
                 switch (tipo)
                 {
                     case "UTM Zone":
-                        respuesta = "SELECT srid, trim(substring(srtext, position('[' in srtext)+1, position(',' in srtext)- position('[' in srtext)-1)) FROM spatial_ref_sys WHERE srtext LIKE '%UTM zone '||@n||'_%'";
+                        respuesta = first + " srtext LIKE '%UTM zone '||@n||'_%' order by srid";
                         break;
                     case "SRID":
-                        respuesta = "SELECT srid, trim(substring(srtext, position('[' in srtext)+1, position(',' in srtext)- position('[' in srtext)-1)) FROM spatial_ref_sys WHERE srid = @n";
+                        string t = "";
+                        for (int i = 0; i < texto.Length; i++)
+                        {
+                            t += 9;
+                        }
+                        respuesta = first + " srid = to_number(@n, '" + t + "') order by srid";
                         break;
                     case "Ciudad":
-                        respuesta =  "SELECT srid, trim(substring(srtext, position('[' in srtext)+1, position(',' in srtext)- position('[' in srtext)-1)) FROM spatial_ref_sys WHERE srtext LIKE '%'||@n||'_%'";
+                        respuesta = first + " srtext LIKE '%'||@n||'_%' order by srid";
                         break;
                     default:
-                        respuesta = "SELECT srid, trim(substring(srtext, position('[' in srtext)+1, position(',' in srtext)- position('[' in srtext)-1)) FROM spatial_ref_sys WHERE srtext LIKE '%'||@n||'_%'";
+                        respuesta = first + " srtext LIKE '%'||@n||'_%' order by srid";
                         break;
                 }
             return respuesta;

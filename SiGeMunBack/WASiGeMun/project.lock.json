@@ -2,30 +2,88 @@
   "locked": false,
   "version": 2,
   "targets": {
-    "DNX,Version=v4.5.1": {
+    "DNX,Version=v4.5.2": {
       "BLL/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
-          "DAL": "1.0.0"
+          "DAL": "1.0.0",
+          "Entity": "1.0.0"
         }
       },
       "DAL/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
+          "DotSpatial.GeoAPI": "1.7.4.1",
+          "DotSpatial.NetTopologySuite": "1.14.2",
+          "DotSpatial.Projections": "1.9.0",
+          "Entity": "1.0.0",
+          "GeoAPI": "1.7.4",
           "Ionic.Zip": "1.0.0",
-          "Npgsql": "1.0.0",
-          "Npgsql.EntityFramework": "1.0.0"
+          "NetTopologySuite": "1.14.0",
+          "NetTopologySuite.IO": "1.14.0.1",
+          "Newtonsoft.Json": "8.0.3",
+          "Npgsql": "3.1.2"
+        }
+      },
+      "DotSpatial.GeoAPI/1.7.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net40-client/DotSpatial.GeoAPI.dll": {}
+        },
+        "runtime": {
+          "lib/net40-client/DotSpatial.GeoAPI.dll": {}
+        }
+      },
+      "DotSpatial.NetTopologySuite/1.14.2": {
+        "type": "package",
+        "dependencies": {
+          "DotSpatial.GeoAPI": "[1.7.4, 1.8.0)"
+        },
+        "frameworkAssemblies": [
+          "System"
+        ],
+        "compile": {
+          "lib/net40-client/DotSpatial.NetTopologySuite.dll": {}
+        },
+        "runtime": {
+          "lib/net40-client/DotSpatial.NetTopologySuite.dll": {}
+        }
+      },
+      "DotSpatial.Projections/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40-Client/DotSpatial.Projections.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/DotSpatial.Projections.dll": {}
         }
       },
       "Entity/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "DotSpatial.GeoAPI": "1.7.4.2",
+          "DotSpatial.NetTopologySuite": "1.14.2",
+          "DotSpatial.Projections": "1.9.0",
+          "GeoAPI": "1.7.4",
+          "NetTopologySuite": "1.14.0",
+          "NetTopologySuite.IO": "1.14.0.1"
+        }
+      },
+      "GeoAPI/1.7.4": {
+        "type": "package",
+        "compile": {
+          "lib/net45/GeoAPI.dll": {}
+        },
+        "runtime": {
+          "lib/net45/GeoAPI.dll": {}
+        }
       },
       "Ionic.Zip/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.2"
       },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
@@ -1560,11 +1618,51 @@
           "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
-      "Mono.Security/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+      "NetTopologySuite/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "GeoAPI": "[1.7.4, 1.8.0)"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/NetTopologySuite.dll": {},
+          "lib/net45/PowerCollections.dll": {}
+        },
+        "runtime": {
+          "lib/net45/NetTopologySuite.dll": {},
+          "lib/net45/PowerCollections.dll": {}
+        }
       },
-      "Newtonsoft.Json/6.0.6": {
+      "NetTopologySuite.IO/1.14.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NetTopologySuite": "1.14.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/NetTopologySuite.IO.dll": {},
+          "lib/net45/NetTopologySuite.IO.GeoTools.dll": {},
+          "lib/net45/NetTopologySuite.IO.MsSqlSpatial.dll": {},
+          "lib/net45/NetTopologySuite.IO.PostGis.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/net45/NetTopologySuite.IO.dll": {},
+          "lib/net45/NetTopologySuite.IO.GeoTools.dll": {},
+          "lib/net45/NetTopologySuite.IO.MsSqlSpatial.dll": {},
+          "lib/net45/NetTopologySuite.IO.PostGis.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -1573,18 +1671,13 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "Npgsql/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Mono.Security": "1.0.0"
-        }
-      },
-      "Npgsql.EntityFramework/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Npgsql": "1.0.0"
+      "Npgsql/3.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Npgsql.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -1799,30 +1892,88 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/win7-x86": {
+    "DNX,Version=v4.5.2/win7-x86": {
       "BLL/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
-          "DAL": "1.0.0"
+          "DAL": "1.0.0",
+          "Entity": "1.0.0"
         }
       },
       "DAL/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
+          "DotSpatial.GeoAPI": "1.7.4.1",
+          "DotSpatial.NetTopologySuite": "1.14.2",
+          "DotSpatial.Projections": "1.9.0",
+          "Entity": "1.0.0",
+          "GeoAPI": "1.7.4",
           "Ionic.Zip": "1.0.0",
-          "Npgsql": "1.0.0",
-          "Npgsql.EntityFramework": "1.0.0"
+          "NetTopologySuite": "1.14.0",
+          "NetTopologySuite.IO": "1.14.0.1",
+          "Newtonsoft.Json": "8.0.3",
+          "Npgsql": "3.1.2"
+        }
+      },
+      "DotSpatial.GeoAPI/1.7.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net40-client/DotSpatial.GeoAPI.dll": {}
+        },
+        "runtime": {
+          "lib/net40-client/DotSpatial.GeoAPI.dll": {}
+        }
+      },
+      "DotSpatial.NetTopologySuite/1.14.2": {
+        "type": "package",
+        "dependencies": {
+          "DotSpatial.GeoAPI": "[1.7.4, 1.8.0)"
+        },
+        "frameworkAssemblies": [
+          "System"
+        ],
+        "compile": {
+          "lib/net40-client/DotSpatial.NetTopologySuite.dll": {}
+        },
+        "runtime": {
+          "lib/net40-client/DotSpatial.NetTopologySuite.dll": {}
+        }
+      },
+      "DotSpatial.Projections/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40-Client/DotSpatial.Projections.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/DotSpatial.Projections.dll": {}
         }
       },
       "Entity/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "DotSpatial.GeoAPI": "1.7.4.2",
+          "DotSpatial.NetTopologySuite": "1.14.2",
+          "DotSpatial.Projections": "1.9.0",
+          "GeoAPI": "1.7.4",
+          "NetTopologySuite": "1.14.0",
+          "NetTopologySuite.IO": "1.14.0.1"
+        }
+      },
+      "GeoAPI/1.7.4": {
+        "type": "package",
+        "compile": {
+          "lib/net45/GeoAPI.dll": {}
+        },
+        "runtime": {
+          "lib/net45/GeoAPI.dll": {}
+        }
       },
       "Ionic.Zip/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.2"
       },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
@@ -3360,11 +3511,51 @@
           "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
-      "Mono.Security/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+      "NetTopologySuite/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "GeoAPI": "[1.7.4, 1.8.0)"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/NetTopologySuite.dll": {},
+          "lib/net45/PowerCollections.dll": {}
+        },
+        "runtime": {
+          "lib/net45/NetTopologySuite.dll": {},
+          "lib/net45/PowerCollections.dll": {}
+        }
       },
-      "Newtonsoft.Json/6.0.6": {
+      "NetTopologySuite.IO/1.14.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NetTopologySuite": "1.14.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/NetTopologySuite.IO.dll": {},
+          "lib/net45/NetTopologySuite.IO.GeoTools.dll": {},
+          "lib/net45/NetTopologySuite.IO.MsSqlSpatial.dll": {},
+          "lib/net45/NetTopologySuite.IO.PostGis.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/net45/NetTopologySuite.IO.dll": {},
+          "lib/net45/NetTopologySuite.IO.GeoTools.dll": {},
+          "lib/net45/NetTopologySuite.IO.MsSqlSpatial.dll": {},
+          "lib/net45/NetTopologySuite.IO.PostGis.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -3373,18 +3564,13 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "Npgsql/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Mono.Security": "1.0.0"
-        }
-      },
-      "Npgsql.EntityFramework/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Npgsql": "1.0.0"
+      "Npgsql/3.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Npgsql.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -3599,30 +3785,88 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/win7-x64": {
+    "DNX,Version=v4.5.2/win7-x64": {
       "BLL/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
-          "DAL": "1.0.0"
+          "DAL": "1.0.0",
+          "Entity": "1.0.0"
         }
       },
       "DAL/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
+          "DotSpatial.GeoAPI": "1.7.4.1",
+          "DotSpatial.NetTopologySuite": "1.14.2",
+          "DotSpatial.Projections": "1.9.0",
+          "Entity": "1.0.0",
+          "GeoAPI": "1.7.4",
           "Ionic.Zip": "1.0.0",
-          "Npgsql": "1.0.0",
-          "Npgsql.EntityFramework": "1.0.0"
+          "NetTopologySuite": "1.14.0",
+          "NetTopologySuite.IO": "1.14.0.1",
+          "Newtonsoft.Json": "8.0.3",
+          "Npgsql": "3.1.2"
+        }
+      },
+      "DotSpatial.GeoAPI/1.7.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net40-client/DotSpatial.GeoAPI.dll": {}
+        },
+        "runtime": {
+          "lib/net40-client/DotSpatial.GeoAPI.dll": {}
+        }
+      },
+      "DotSpatial.NetTopologySuite/1.14.2": {
+        "type": "package",
+        "dependencies": {
+          "DotSpatial.GeoAPI": "[1.7.4, 1.8.0)"
+        },
+        "frameworkAssemblies": [
+          "System"
+        ],
+        "compile": {
+          "lib/net40-client/DotSpatial.NetTopologySuite.dll": {}
+        },
+        "runtime": {
+          "lib/net40-client/DotSpatial.NetTopologySuite.dll": {}
+        }
+      },
+      "DotSpatial.Projections/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40-Client/DotSpatial.Projections.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/DotSpatial.Projections.dll": {}
         }
       },
       "Entity/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "DotSpatial.GeoAPI": "1.7.4.2",
+          "DotSpatial.NetTopologySuite": "1.14.2",
+          "DotSpatial.Projections": "1.9.0",
+          "GeoAPI": "1.7.4",
+          "NetTopologySuite": "1.14.0",
+          "NetTopologySuite.IO": "1.14.0.1"
+        }
+      },
+      "GeoAPI/1.7.4": {
+        "type": "package",
+        "compile": {
+          "lib/net45/GeoAPI.dll": {}
+        },
+        "runtime": {
+          "lib/net45/GeoAPI.dll": {}
+        }
       },
       "Ionic.Zip/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.2"
       },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
@@ -5160,11 +5404,51 @@
           "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
-      "Mono.Security/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
+      "NetTopologySuite/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "GeoAPI": "[1.7.4, 1.8.0)"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/NetTopologySuite.dll": {},
+          "lib/net45/PowerCollections.dll": {}
+        },
+        "runtime": {
+          "lib/net45/NetTopologySuite.dll": {},
+          "lib/net45/PowerCollections.dll": {}
+        }
       },
-      "Newtonsoft.Json/6.0.6": {
+      "NetTopologySuite.IO/1.14.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NetTopologySuite": "1.14.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/NetTopologySuite.IO.dll": {},
+          "lib/net45/NetTopologySuite.IO.GeoTools.dll": {},
+          "lib/net45/NetTopologySuite.IO.MsSqlSpatial.dll": {},
+          "lib/net45/NetTopologySuite.IO.PostGis.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/net45/NetTopologySuite.IO.dll": {},
+          "lib/net45/NetTopologySuite.IO.GeoTools.dll": {},
+          "lib/net45/NetTopologySuite.IO.MsSqlSpatial.dll": {},
+          "lib/net45/NetTopologySuite.IO.PostGis.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.dll": {},
+          "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -5173,18 +5457,13 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "Npgsql/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Mono.Security": "1.0.0"
-        }
-      },
-      "Npgsql.EntityFramework/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Npgsql": "1.0.0"
+      "Npgsql/3.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Npgsql.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -5417,17 +5696,59 @@
       "type": "project",
       "path": "../wrap/Ionic.Zip/project.json"
     },
-    "Mono.Security/1.0.0": {
-      "type": "project",
-      "path": "../wrap/Mono.Security/project.json"
+    "DotSpatial.GeoAPI/1.7.4.2": {
+      "type": "package",
+      "sha512": "zZGkJpfnH0k9tSiJvbsuPVbMGKzZf09fwRv9You/gyF6cRVMzlBSp4rMeFBXz0rywfM+1F+mLQrwLI8RhMHL0Q==",
+      "files": [
+        "DotSpatial.GeoAPI.1.7.4.2.nupkg",
+        "DotSpatial.GeoAPI.1.7.4.2.nupkg.sha512",
+        "DotSpatial.GeoAPI.nuspec",
+        "lib/net40-client/DotSpatial.GeoAPI.dll",
+        "lib/net40-client/DotSpatial.GeoAPI.xml"
+      ]
     },
-    "Npgsql/1.0.0": {
-      "type": "project",
-      "path": "../wrap/Npgsql/project.json"
+    "DotSpatial.NetTopologySuite/1.14.2": {
+      "type": "package",
+      "sha512": "HXrQwEadXKpnmbJ8sws2brtw4D08jbvbJyjgFSwQEubP61kv4wNDY8pIyppLLQkeQUkH/3mRfIpJvh2dcGH+mg==",
+      "files": [
+        "DotSpatial.NetTopologySuite.1.14.2.nupkg",
+        "DotSpatial.NetTopologySuite.1.14.2.nupkg.sha512",
+        "DotSpatial.NetTopologySuite.nuspec",
+        "lib/net40-client/DotSpatial.NetTopologySuite.dll",
+        "lib/net40-client/DotSpatial.NetTopologySuite.xml"
+      ]
     },
-    "Npgsql.EntityFramework/1.0.0": {
-      "type": "project",
-      "path": "../wrap/Npgsql.EntityFramework/project.json"
+    "DotSpatial.Projections/1.9.0": {
+      "type": "package",
+      "sha512": "cV5sEQuvIgmfcIa3ALEXhmt3GK2DcAI8Un+WRbtR+PnvIlaVCXr8D1ikV3SmqnyXgxMhZOuceRQBtAUqXMZ9jg==",
+      "files": [
+        "DotSpatial.Projections.1.9.0.nupkg",
+        "DotSpatial.Projections.1.9.0.nupkg.sha512",
+        "DotSpatial.Projections.nuspec",
+        "lib/net40-Client/DotSpatial.Projections.dll",
+        "lib/net40-Client/DotSpatial.Projections.xml"
+      ]
+    },
+    "GeoAPI/1.7.4": {
+      "type": "package",
+      "sha512": "joDULkwmUsXSZPsqQ6H62QmQOi54t3TWyhiKDb48PVUfIox1nSy1RRuEIDQ51h/jBmgb+ZeCsUmMoETVddKJ1A==",
+      "files": [
+        "GeoAPI.1.7.4.nupkg",
+        "GeoAPI.1.7.4.nupkg.sha512",
+        "GeoAPI.nuspec",
+        "lib/net20/GeoAPI.dll",
+        "lib/net20/GeoAPI.xml",
+        "lib/net35-client/GeoAPI.dll",
+        "lib/net35-client/GeoAPI.xml",
+        "lib/net403-client/GeoAPI.dll",
+        "lib/net403-client/GeoAPI.xml",
+        "lib/net40-client/GeoAPI.dll",
+        "lib/net40-client/GeoAPI.xml",
+        "lib/net45/GeoAPI.dll",
+        "lib/net45/GeoAPI.xml",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/GeoAPI.dll",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/GeoAPI.xml"
+      ]
     },
     "Microsoft.ApplicationInsights/1.1.1-beta": {
       "type": "package",
@@ -6619,9 +6940,109 @@
         "Microsoft.VisualStudio.Web.BrowserLink.Loader.nuspec"
       ]
     },
-    "Newtonsoft.Json/6.0.6": {
+    "NetTopologySuite/1.14.0": {
       "type": "package",
-      "sha512": "w26uZNyCG5VeoKiEOJ4+9/o8koSofLKwHl7WLreIcp0U6r57L7WiRXmjp8MTKFw6dYNZ9AE0lw69WYbIhUsU9Q==",
+      "sha512": "WZxN1WPRELed8vrTFZXc1lxRuLB29hJMx7W6FiisgZc27XGV+1Q9tdwb9ESAimc1i1sFfG7jQqVW9v090wtchQ==",
+      "files": [
+        "lib/net20/NetTopologySuite.dll",
+        "lib/net20/NetTopologySuite.xml",
+        "lib/net20/PowerCollections.dll",
+        "lib/net20/PowerCollections.xml",
+        "lib/net35-client/NetTopologySuite.dll",
+        "lib/net35-client/NetTopologySuite.xml",
+        "lib/net35-client/PowerCollections.dll",
+        "lib/net35-client/PowerCollections.xml",
+        "lib/net403-client/NetTopologySuite.dll",
+        "lib/net403-client/NetTopologySuite.xml",
+        "lib/net403-client/PowerCollections.dll",
+        "lib/net403-client/PowerCollections.xml",
+        "lib/net40-client/NetTopologySuite.dll",
+        "lib/net40-client/NetTopologySuite.xml",
+        "lib/net40-client/PowerCollections.dll",
+        "lib/net40-client/PowerCollections.xml",
+        "lib/net45/NetTopologySuite.dll",
+        "lib/net45/NetTopologySuite.xml",
+        "lib/net45/PowerCollections.dll",
+        "lib/net45/PowerCollections.xml",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/GeoAPI.Bootstrapper.NetTopologySuite.dll",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/GeoAPI.Bootstrapper.NetTopologySuite.xml",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/NetTopologySuite.dll",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/NetTopologySuite.xml",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/PowerCollections.dll",
+        "lib/portable-net403+sl5+netcore45+wpa81+wp8+MonoAndroid10+XamariniOS10+MonoTouch10/PowerCollections.xml",
+        "NetTopologySuite.1.14.0.nupkg",
+        "NetTopologySuite.1.14.0.nupkg.sha512",
+        "NetTopologySuite.nuspec"
+      ]
+    },
+    "NetTopologySuite.IO/1.14.0.1": {
+      "type": "package",
+      "sha512": "XTsFycrhC/tUBepRnSwWvLDUWRMO0rxemU5HmXYfk4/vP626t9g/xcy2ZiN6qroFDWGEB2tPbSPnwwINaWefpA==",
+      "files": [
+        "lib/net20/NetTopologySuite.IO.dll",
+        "lib/net20/NetTopologySuite.IO.GeoTools.dll",
+        "lib/net20/NetTopologySuite.IO.GeoTools.xml",
+        "lib/net20/NetTopologySuite.IO.MsSqlSpatial.dll",
+        "lib/net20/NetTopologySuite.IO.MsSqlSpatial.xml",
+        "lib/net20/NetTopologySuite.IO.PostGis.dll",
+        "lib/net20/NetTopologySuite.IO.PostGis.xml",
+        "lib/net20/NetTopologySuite.IO.ShapeFile.dll",
+        "lib/net20/NetTopologySuite.IO.ShapeFile.xml",
+        "lib/net20/NetTopologySuite.IO.xml",
+        "lib/net35-client/NetTopologySuite.IO.dll",
+        "lib/net35-client/NetTopologySuite.IO.GeoTools.dll",
+        "lib/net35-client/NetTopologySuite.IO.GeoTools.xml",
+        "lib/net35-client/NetTopologySuite.IO.MsSqlSpatial.dll",
+        "lib/net35-client/NetTopologySuite.IO.MsSqlSpatial.xml",
+        "lib/net35-client/NetTopologySuite.IO.PostGis.dll",
+        "lib/net35-client/NetTopologySuite.IO.PostGis.xml",
+        "lib/net35-client/NetTopologySuite.IO.ShapeFile.dll",
+        "lib/net35-client/NetTopologySuite.IO.ShapeFile.xml",
+        "lib/net35-client/NetTopologySuite.IO.xml",
+        "lib/net403-client/NetTopologySuite.IO.dll",
+        "lib/net403-client/NetTopologySuite.IO.GeoTools.dll",
+        "lib/net403-client/NetTopologySuite.IO.GeoTools.xml",
+        "lib/net403-client/NetTopologySuite.IO.MsSqlSpatial.dll",
+        "lib/net403-client/NetTopologySuite.IO.MsSqlSpatial.xml",
+        "lib/net403-client/NetTopologySuite.IO.PostGis.dll",
+        "lib/net403-client/NetTopologySuite.IO.PostGis.xml",
+        "lib/net403-client/NetTopologySuite.IO.ShapeFile.dll",
+        "lib/net403-client/NetTopologySuite.IO.ShapeFile.Extended.dll",
+        "lib/net403-client/NetTopologySuite.IO.ShapeFile.Extended.xml",
+        "lib/net403-client/NetTopologySuite.IO.ShapeFile.xml",
+        "lib/net403-client/NetTopologySuite.IO.xml",
+        "lib/net40-client/NetTopologySuite.IO.dll",
+        "lib/net40-client/NetTopologySuite.IO.GeoTools.dll",
+        "lib/net40-client/NetTopologySuite.IO.GeoTools.xml",
+        "lib/net40-client/NetTopologySuite.IO.MsSqlSpatial.dll",
+        "lib/net40-client/NetTopologySuite.IO.MsSqlSpatial.xml",
+        "lib/net40-client/NetTopologySuite.IO.PostGis.dll",
+        "lib/net40-client/NetTopologySuite.IO.PostGis.xml",
+        "lib/net40-client/NetTopologySuite.IO.ShapeFile.dll",
+        "lib/net40-client/NetTopologySuite.IO.ShapeFile.Extended.dll",
+        "lib/net40-client/NetTopologySuite.IO.ShapeFile.Extended.xml",
+        "lib/net40-client/NetTopologySuite.IO.ShapeFile.xml",
+        "lib/net40-client/NetTopologySuite.IO.xml",
+        "lib/net45/NetTopologySuite.IO.dll",
+        "lib/net45/NetTopologySuite.IO.GeoTools.dll",
+        "lib/net45/NetTopologySuite.IO.GeoTools.xml",
+        "lib/net45/NetTopologySuite.IO.MsSqlSpatial.dll",
+        "lib/net45/NetTopologySuite.IO.MsSqlSpatial.xml",
+        "lib/net45/NetTopologySuite.IO.PostGis.dll",
+        "lib/net45/NetTopologySuite.IO.PostGis.xml",
+        "lib/net45/NetTopologySuite.IO.ShapeFile.dll",
+        "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.dll",
+        "lib/net45/NetTopologySuite.IO.ShapeFile.Extended.xml",
+        "lib/net45/NetTopologySuite.IO.ShapeFile.xml",
+        "lib/net45/NetTopologySuite.IO.xml",
+        "NetTopologySuite.IO.1.14.0.1.nupkg",
+        "NetTopologySuite.IO.1.14.0.1.nupkg.sha512",
+        "NetTopologySuite.IO.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/8.0.3": {
+      "type": "package",
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
       "files": [
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -6631,16 +7052,29 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
-        "lib/netcore45/Newtonsoft.Json.dll",
-        "lib/netcore45/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll",
-        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.6.0.6.nupkg",
-        "Newtonsoft.Json.6.0.6.nupkg.sha512",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "Newtonsoft.Json.8.0.3.nupkg",
+        "Newtonsoft.Json.8.0.3.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "Npgsql/3.1.2": {
+      "type": "package",
+      "sha512": "vOdKkBpaYNxjeHN08nmEndCvDB3E6iH3O5lhtWmGSbq9LxHFXD7U8TL9uGDTls3vtIE+YMAmVMlqS3NGc8iQew==",
+      "files": [
+        "lib/net45/Npgsql.dll",
+        "lib/net45/Npgsql.xml",
+        "lib/net451/Npgsql.dll",
+        "lib/net451/Npgsql.xml",
+        "lib/netstandard1.3/Npgsql.dll",
+        "lib/netstandard1.3/Npgsql.xml",
+        "Npgsql.3.1.2.nupkg",
+        "Npgsql.3.1.2.nupkg.sha512",
+        "Npgsql.nuspec"
       ]
     },
     "System.Collections/4.0.0": {
@@ -7435,12 +7869,13 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
+      "Microsoft.AspNet.Mvc.ViewFeatures >= 6.0.0-rc1-final",
+      "Microsoft.AspNet.Mvc.Core >= 6.0.0-rc1-final"
     ],
-    "DNX,Version=v4.5.1": [
+    "DNX,Version=v4.5.2": [
       "BLL >= 1.0.0-*",
-      "Entity >= 1.0.0-*",
-      "fx/System.Web >= 4.0.0"
+      "Entity >= 1.0.0-*"
     ]
   }
 }

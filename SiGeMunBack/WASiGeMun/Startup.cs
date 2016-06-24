@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WASiGeMun.Services;
+using Entity;
+using Newtonsoft.Json.Serialization;
+using System.IO;
+using System.Runtime.InteropServices;
 
 namespace WASiGeMun
 {
@@ -26,11 +30,19 @@ namespace WASiGeMun
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
             Configuration = builder.Build();
+            //ConnectionString = Configuration.Get<string>("Data:LocalPostgresConection:ConnectionString"); //Jeciel
             ConnectionString = Configuration.Get<string>("Data:LocalPostgresConection:ConnectionStringDevel"); //Jeciel
+
+            string netBase = Path.GetFullPath(Path.Combine(RuntimeEnvironment.GetRuntimeDirectory(), @"..\.."));
+            Dir_tmp__32 = string.Concat(netBase, @"\Framework\", RuntimeEnvironment.GetSystemVersion(), @"\Temporary ASP.NET Files");
+            //Dir_tmp_64 = string.Concat(netBase, @"\Framework64\", RuntimeEnvironment.GetSystemVersion(), @"\Temporary ASP.NET Files");
+
+
         }
 
         public IConfigurationRoot Configuration { get; set; }
         public static string ConnectionString { get; private set; }//Jeciel
+        public static string Dir_tmp__32 { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -40,8 +52,13 @@ namespace WASiGeMun
             services.AddCors();
             services.AddMvc();
 
+            services.AddMvcCore()
+                   .AddJsonFormatters(a => a.ContractResolver = new CamelCasePropertyNamesContractResolver());
+
             //Servicios
             services.AddTransient<IWcfServSiGeMun, WcfServSiGeMun>();
+           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +82,7 @@ namespace WASiGeMun
             app.UseIISPlatformHandler();
 
             app.UseApplicationInsightsExceptionTelemetry();
+            app.UseMvc();
 
             app.UseStaticFiles();
 

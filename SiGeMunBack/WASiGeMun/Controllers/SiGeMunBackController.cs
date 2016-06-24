@@ -2,30 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http;
 using Microsoft.AspNet.Mvc;
 using WASiGeMun.Services;
 using Entity;
-using System.Net;
+using System.IO;
+using WASiGeMun.Utilities;
+using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Hosting;
+
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WASiGeMun.Controllers
 {
-
-    [Route("api")]
-    public class SiGeMunBackController : ApiController
+    public class SiGeMunBackController : Controller
     {
         private IWcfServSiGeMun servicio;
+
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         public SiGeMunBackController(IWcfServSiGeMun servicio)
         {
             this.servicio = servicio;
         }
 
+        [HttpPost]
+        [Route("api/InsertScript")]
+        public string InsertScript()
+        {
+            string respuesta = "False";
+            try
+            {
+                Stream s = new MemoryStream(new ByteConverter().getByteArray(Request.Body, (long)Request.ContentLength));
+                if (this.servicio.InsertScript(s))
+                    respuesta = "True";
+                else
+                    respuesta = "False";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+            return respuesta;
+        }
+
         [HttpGet]
-        [Route("getEPSG/{p1}/{p2}")]
-        public IEnumerable<EPSGEntity> getEPSG(string p1, string p2)
+        [Route("api/getEPSG/{p1}/{p2}")]
+        public IActionResult getEPSG(string p1, string p2)
         {
             IEnumerable<EPSGEntity> lista;
 
@@ -33,23 +59,38 @@ namespace WASiGeMun.Controllers
             {
                 if (p1 != "" && p2 != "")
                 {
-                    //lista = (IEnumerable<EPSGEntity>)this.servicio.getEPSG(p1, p2);
+                    if ((lista = this.servicio.getEPSG(p1, p2).GetAll()) != null)
+                        return new ObjectResult(lista);
                 }
-                else
-                {
-                    throw new HttpResponseException(HttpStatusCode.NotFound);
-                }
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                new HttpResponseException(HttpStatusCode.NotFound);
-                lista = null;
+                return new ObjectResult(e.Message);
             }
 
-            return null ;
+            return new ObjectResult("False");
         }
 
+        [HttpGet]
+        [Route("api/getLog")]
+        public IActionResult getLog()
+        {
+            IEnumerable<LogEntity> lista;
+            try
+            {
+                if ((lista = this.servicio.getLog()) != null)
+                    return new ObjectResult(lista);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new ObjectResult(e.Message);
+            }
+
+            return new ObjectResult("False");
+        }
+
+       
     }
 }

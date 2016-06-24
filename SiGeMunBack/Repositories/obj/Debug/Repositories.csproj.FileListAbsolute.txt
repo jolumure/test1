@@ -1,7 +1,0 @@
-C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Repositories\bin\Debug\Repositories.dll
-C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Repositories\bin\Debug\Repositories.pdb
-C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Repositories\bin\Debug\Entity.dll
-C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Repositories\bin\Debug\Entity.pdb
-C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
-C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Repositories\obj\Debug\Repositories.dll
-C:\proys\sigemun\sigemun-Jeciel\SiGeMunBack\Repositories\obj\Debug\Repositories.pdb
