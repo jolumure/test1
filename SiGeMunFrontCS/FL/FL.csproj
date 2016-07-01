@@ -33,7 +33,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,48 +43,17 @@
   <ItemGroup>
     <Compile Include="ETBatchProcFL.cs" />
     <Compile Include="ETEPSG.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\WCFServSiGeMun\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.wsdl" />
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WCFServSiGeMun\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCFServSiGeMun\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCFServSiGeMun\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCFServSiGeMun\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Entity_Temp\Entity_Temp.csproj">
+      <Project>{01591e16-e872-4d72-b743-7b0b11c8794c}</Project>
+      <Name>Entity_Temp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HTTPService\HTTPService.csproj">
       <Project>{a19d1912-4209-432e-b0d9-204cebfd901d}</Project>
       <Name>HTTPService</Name>

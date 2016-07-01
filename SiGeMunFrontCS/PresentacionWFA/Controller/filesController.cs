@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.IO.Compression;
+using Entity_Temp;
 using Ionic.Zip;
-using PresentacionWFA.Entity_temp;
 
 namespace PresentacionWFA.Controller
 {
@@ -22,7 +22,7 @@ namespace PresentacionWFA.Controller
             try
             {
                 System.IO.File.Copy(System.IO.Path.Combine(dgnFileEntity1.Ruta, dgnFileEntity1.Nombre),
-                    System.IO.Path.Combine(dgnFileEntity2.Ruta, dgnFileEntity2.Nombre), 
+                    System.IO.Path.Combine(dgnFileEntity2.Ruta, dgnFileEntity2.Nombre),
                     true);
                 return true;
             }
@@ -45,9 +45,9 @@ namespace PresentacionWFA.Controller
                 }
                 return true;
             }
-            catch 
-            { 
-                return false; 
+            catch
+            {
+                return false;
             }
         }
 
@@ -113,7 +113,7 @@ namespace PresentacionWFA.Controller
                     {
                         tw.WriteLine(sql);
                     }
-                    tw.Close();
+                    //tw.Close();
                 }
             }
 
@@ -125,7 +125,7 @@ namespace PresentacionWFA.Controller
                     {
                         _tw.WriteLine(sql);
                     }
-                    _tw.Close();
+                    //_tw.Close();
                 }
             }
         }
@@ -142,7 +142,7 @@ namespace PresentacionWFA.Controller
 
                     tw.WriteLine(SingleSQLLine);
 
-                    tw.Close();
+                    //tw.Close();
                 }
             }
 
@@ -151,7 +151,7 @@ namespace PresentacionWFA.Controller
                 using (TextWriter _tw = new StreamWriter(filename, true))
                 {
                     _tw.WriteLine(SingleSQLLine);
-                    _tw.Close();
+                    // _tw.Close();
                 }
             }
         }

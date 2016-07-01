@@ -37,4 +37,21 @@ namespace Entity
 
     }
 
+
+    public class SHPResultInsert
+    {
+        public SHPResultInsert()
+        {
+            observaciones = new List<string>();
+        }
+        public string nombreVista { get; set; }
+        public List<string> observaciones { get; set; }
+        public string status { get; set; }
+
+        public string ToJSON()
+        {
+            return new JavaScriptSerializer().Serialize(this);
+        }
+    }
+
 }

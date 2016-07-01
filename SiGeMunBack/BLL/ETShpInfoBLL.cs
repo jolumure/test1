@@ -17,10 +17,10 @@ namespace BLL
             ETShpInfoDAL obj = new ETShpInfoDAL();
             return obj.getInfoShpOnMemory(localPath);
         }
-        public SHPInfo setShp(string cs,string localPath, string nombreFature, string EPSGOrig, string EPSGDest)
+        public SHPResultInsert setShp(string cs,string localPath, string departamento,string nombreFeature, string EPSGOrig, string EPSGDest)
         {
             ETShpInfoDAL obj = new ETShpInfoDAL(cs);
-            return obj.setShpOnDB(localPath, nombreFature, EPSGOrig, EPSGDest);
+            return obj.setShpOnDB(localPath,departamento, nombreFeature, EPSGOrig, EPSGDest);
         }
     }
 }

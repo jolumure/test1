@@ -85,12 +85,229 @@
     </levels>
     <entity>eg_construccion_clave</entity>
   </theme>
-
-  
   <!-- /*****************************FIN CARTOGRAFÍA CATASTRAL ***************************/-->
 
-  <!--CondominiosH-->
+  <!-- /***************************** CARTOGRAFÍA REFERENCIA ***************************/-->
+
+  <!--Calle Vector-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>line</type>
+    <name>Calle</name>
+    <levels>
+      <level>VectorCalle</level>
+    </levels>
+    <entity>eg_calle</entity>
+  </theme>
+
+  <!--Calle Clave-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Calle Clave</name>
+    <levels>
+      <level>NombreCalle</level>
+    </levels>
+    <entity>eg_calle_clave</entity>
+  </theme>
+
+  <!---************************************** NUEVOS *************************************************************************-->
+
+  <!--Colonia-->
  
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Colonia</name>
+    <levels>
+      <level>Colonia</level>
+      <level>NombreColonia</level>
+    </levels>
+    <entity>eg_colonia</entity>
+  </theme> 
+ 
+
+  <!--Colonia Clave-->
+
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Colonia Clave</name>
+    <levels>
+      <level>NombreColonia</level>
+    </levels>
+    <entity>eg_colonia_clave</entity>
+  </theme>
+
+  <!--Estado-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Estado</name>
+    <levels>
+      <level>LimEdo</level>
+      <level>CveEdo</level>
+    </levels>
+    <entity>eg_estado</entity>
+  </theme>
+
+  <!--Estado Clave-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Estado Clave</name>
+    <levels>
+      <level>CveEdo</level>
+    </levels>
+    <entity>eg_estado_clave</entity>
+  </theme>
+
+  <!--Codigo Postal-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Codigo Postal</name>
+    <levels>
+      <level>Cp</level>
+      <level>CveCp</level>
+    </levels>
+    <entity>eg_codigopostal</entity>
+  </theme>
+
+
+  <!--Clave Codigo Postal-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Codigo Postal Clave</name>
+    <levels>
+      <level>CveCp</level>
+    </levels>
+    <entity>eg_codigopostal_clave</entity>
+  </theme>
+ 
+
+  <!--Centro Historico-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Centro Historico</name>
+    <levels>
+      <level>CentroHistorico</level>
+      <level>CveCentroHistorico</level>
+    </levels>
+    <entity>eg_centrohistorico</entity>
+  </theme>
+
+  <!--Clave Centro Historico-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Centro Historico Clave</name>
+    <levels>
+      <level>CveCentroHistorico</level>
+    </levels>
+    <entity>eg_centrohistorico_clave</entity>
+  </theme>
+
+  <!-- Zonas Economicas -->
+
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Zonas Economicas</name>
+    <levels>
+      <level>AreaValor</level>
+      <level>CveAreaValor</level>
+    </levels>
+    <entity>eg_zonaseconomicas</entity>
+  </theme>
+
+
+  <!--Clave Zonas Economicas-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Zonas Economicas Clave</name>
+    <levels>
+      <level>CveAreaValor</level>
+    </levels>
+    <entity>eg_zonaseconomicas_clave</entity>
+  </theme>
+
+
+  <!--Municipio-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Municipio</name>
+    <levels>
+      <level>Mpio</level>
+      <level>CveMpio</level>
+    </levels>
+    <entity>eg_municipio</entity>
+  </theme>
+
+  <!--Clave Municipio-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Municipio Clave</name>
+    <levels>
+      <level>CveMpio</level>
+    </levels>
+    <entity>eg_municipio_clave</entity>
+  </theme>
+
+  <!--Seccion-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Seccion</name>
+    <levels>
+      <level>Seccion</level>
+      <level>CveSeccion</level>
+    </levels>
+    <entity>eg_seccion</entity>
+  </theme>
+
+  <!--Clave Seccion-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Seccion Clave</name>
+    <levels>
+      <level>CveSeccion</level>
+    </levels>
+    <entity>eg_seccion_clave</entity>
+  </theme>
+
+  <!--Localidad-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>polygon</type>
+    <name>Localidad</name>
+    <levels>
+      <level>Localidad</level>
+      <level>CveLocalidad</level>
+    </levels>
+    <entity>eg_localidad</entity>
+  </theme>
+
+  <!--Clave Localidad-->
+  <theme>
+    <category>Cartografía Referencia</category>
+    <type>point</type>
+    <name>Localidad Clave</name>
+    <levels>
+      <level>CveLocalidad</level>
+    </levels>
+    <entity>eg_localidad_clave</entity>
+  </theme>
+
+  <!-- /************************************FIN CARTOGRAFÍA REFERENCIA **********************************/-->
+  <!--CondominiosH-->
+  <!--
   <theme>
     <category>Cartografía X </category>
     <type>polygon</type>
@@ -103,9 +320,10 @@
     </levels>
     <entity>15</entity>
   </theme>
+-->
 
   <!--Número Oficial condominio-->
-
+  <!--
   <theme>
     <category>Cartografía X </category>
     <type>point</type>
@@ -115,9 +333,10 @@
     </levels>
     <entity>15</entity>
   </theme>
-  
-  <!--Delegación-->
+  -->
 
+  <!--Delegación-->
+  <!--
   <theme>
     <category>Cartografía X </category>
     <type>polygon</type>
@@ -129,10 +348,10 @@
     </levels>
     <entity>15</entity>
   </theme>  
-
+-->
 
   <!--Delegación Clave-->
-
+  <!--
   <theme>
     <category>Cartografía X </category>
     <type>point</type>
@@ -142,63 +361,9 @@
     </levels>
     <entity>15</entity>
   </theme>
+  -->
 
-
-  <!--Colonia-->
-
-  <theme>
-    <category>Cartografía X </category>
-    <type>polygon</type>
-    <name>Colonia</name>
-    <levels>
-      <level>Nivel 30</level>
-      <level>Nivel 31</level>
-      <level>Nivel 33</level>
-      <level>Nivel 41</level>
-      <level>Nivel 42</level>
-    </levels>
-    <entity>15</entity>
-  </theme>
-  
   <!-- /*****************************FIN CARTOGRAFÍA X ***************************/-->
-  
-  <!--Colonia Clave-->
-  <!--
-  <theme>
-    <category>basica</category>
-    <type>point</type>
-    <name>Colonia Clave</name>
-    <levels>
-      <level>Nivel 42</level>
-    </levels>
-    <entity>15</entity>
-  </theme>
-  -->
-  <!--Calle-->
-  <!--
-  <theme>
-    <category>basica</category>
-    <type>line</type>
-    <name>Calle</name>
-    <levels>
-      <level>Nivel 43</level>
-    </levels>
-    <entity>15</entity>
-  </theme>
-  -->
-  
-  <!--Calle Clave-->
-  <!--
-  <theme>
-    <category>basica</category>
-    <type>point</type>
-    <name>Calle Clave</name>
-    <levels>
-      <level>Nivel 44</level>
-    </levels>
-    <entity>15</entity>
-  </theme>
-  -->
   <!--Admin Tributaria-->
   <!--
   <theme>
@@ -212,6 +377,7 @@
     <entity>15</entity>
   </theme>
   -->
+
   <!--Admin Tributaria Clave-->
   <!--
   <theme>
@@ -250,7 +416,7 @@
     <entity>15</entity>
   </theme>
   -->
-  
+
   <!--Índice cartográfico-->
   <!--
   <theme>
@@ -278,5 +444,3 @@
   </theme>
   -->
 </themes>
-
-

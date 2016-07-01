@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FL", "FL\FL.csproj", "{5879
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPService", "HTTPService\HTTPService.csproj", "{A19D1912-4209-432E-B0D9-204CEBFD901D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity_Temp", "Entity_Temp\Entity_Temp.csproj", "{01591E16-E872-4D72-B743-7B0B11C8794C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refBentley", "refBentley\refBentley.csproj", "{2E7C7C11-E10A-4FA5-AAA6-4EC850F974D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{A19D1912-4209-432E-B0D9-204CEBFD901D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A19D1912-4209-432E-B0D9-204CEBFD901D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A19D1912-4209-432E-B0D9-204CEBFD901D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01591E16-E872-4D72-B743-7B0B11C8794C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01591E16-E872-4D72-B743-7B0B11C8794C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01591E16-E872-4D72-B743-7B0B11C8794C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01591E16-E872-4D72-B743-7B0B11C8794C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7C7C11-E10A-4FA5-AAA6-4EC850F974D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7C7C11-E10A-4FA5-AAA6-4EC850F974D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7C7C11-E10A-4FA5-AAA6-4EC850F974D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7C7C11-E10A-4FA5-AAA6-4EC850F974D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

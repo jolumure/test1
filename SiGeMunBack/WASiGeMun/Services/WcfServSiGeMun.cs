@@ -68,7 +68,7 @@ namespace WASiGeMun.Services
             }
         }
 
-        public SHPInfo putshp(string localPath, string nombreFature, string EPSGOrig, string EPSGDest)
+        public SHPResultInsert putshp(string localPath, string departamento, string nombreFeature, string EPSGOrig, string EPSGDest)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace WASiGeMun.Services
                 if (cs != null && cs != "")
                 {
                     ETShpInfoBLL obj = new ETShpInfoBLL();
-                    return obj.setShp(cs,localPath, nombreFature, EPSGOrig, EPSGDest);
+                    return obj.setShp(cs,localPath,departamento, nombreFeature, EPSGOrig, EPSGDest);
                 }
                 else
                 {

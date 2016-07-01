@@ -14,6 +14,6 @@ namespace WASiGeMun.Services
         IEPSGRepository getEPSG(string concepto, string texto);
         IEnumerable<LogEntity> getLog();
         SHPInfo getShpInfo(string localPath);
-        SHPInfo putshp(string localPath, string nombreFature, string EPSGOrig, string EPSGDest);
+        SHPResultInsert putshp(string localPath, string departamento, string nombreFature, string EPSGOrig, string EPSGDest);
     }
 }

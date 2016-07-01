@@ -13,12 +13,11 @@ using NetTopologySuite.IO;
 using NetTopologySuite.Features;
 using NetTopologySuite.Operation.Polygonize;
 using GeoAPI.Geometries;
-
-using PresentacionWFA.Entity_temp;
 using PresentacionWFA.Data;
 using System.Collections;
 using System.Globalization;
 using PresentacionWFA.Controller;
+using Entity_Temp;
 
 namespace PresentacionWFA
 {
@@ -29,14 +28,14 @@ namespace PresentacionWFA
         private Bentley.Interop.MicroStationDGN.ApplicationObjectConnector connectorUstn;
         private Bentley.Interop.MicroStationDGN.Application applicationUstn;
 
-        private bool _isConnected=false;
-       
+        private bool _isConnected = false;
+
         #endregion
-        
+
         #region Constructor
-        
+
         public UstnController() { }
-        
+
         #endregion
 
         #region Methods
@@ -55,7 +54,7 @@ namespace PresentacionWFA
                     this.connectorUstn = (Bentley.Interop.MicroStationDGN.ApplicationObjectConnector)System.Runtime.InteropServices.Marshal.GetActiveObject("MicroStationDGN.ApplicationObjectConnector");
                     this.applicationUstn = connectorUstn.Application;
                     this.applicationUstn.Visible = true;
-                  
+
                     this._isConnected = true;
                     return true;
                 }
@@ -73,9 +72,10 @@ namespace PresentacionWFA
 
         }
 
-        internal void openDgn(DgnFileEntity dgnFileEntity,bool readOnly)
+        internal void openDgn(DgnFileEntity dgnFileEntity, bool readOnly)
         {
-            this.applicationUstn.OpenDesignFile(dgnFileEntity.Ruta + dgnFileEntity.Nombre, readOnly);
+            this.applicationUstn.OpenDesignFile(dgnFileEntity.Ruta + dgnFileEntity.Nombre, readOnly); //ERROR
+
         }
 
         internal void removeReferences()
@@ -94,7 +94,7 @@ namespace PresentacionWFA
                 //this.applicationUstn.ActiveDesignFile.DefaultModelReference.Attachments.AddCoincident(file.Ruta + file.Nombre,
                 //    this.applicationUstn.ActiveModelReference.Name.ToString(),
                 //    file.Nombre, file.Nombre);
-                
+
                 this.applicationUstn.ActiveModelReference.Attachments.AddCoincident(file.Ruta + file.Nombre,
                     this.applicationUstn.ActiveModelReference.Name.ToString(),
                     file.Nombre, file.Nombre);
@@ -154,7 +154,7 @@ namespace PresentacionWFA
             return this._isConnected;
         }
 
-        internal List<string> MakeListPolygWKT(string feature,bool apostrofe)
+        internal List<string> MakeListPolygWKT(string feature, bool apostrofe)
         {
             try
             {
@@ -162,7 +162,7 @@ namespace PresentacionWFA
                 //ICollection<IGeometry> polygonLayer = makeTopoPolyg();
                 if (polygonLayer != null)
                 {
-                    return convertTopoPolygToWKT(ref polygonLayer,apostrofe);
+                    return convertTopoPolygToWKT(ref polygonLayer, apostrofe);
                     //return convertTopoPolygToWKT(ref polygonLayer, apostrofe);
                 }
                 else
@@ -201,7 +201,6 @@ namespace PresentacionWFA
         {
             try
             {
-
                 List<PointTextEntity> lstWKTGeom = new List<PointTextEntity>();
                 PointTextEntity item = new PointTextEntity();
                 WKTPoint origGeom = new WKTPoint();
@@ -215,7 +214,7 @@ namespace PresentacionWFA
                         textElem = enumerator.Current.AsTextElement();
                         item = new PointTextEntity();
                         origGeom = new WKTPoint();
-                        origGeom.SRID = 32614;
+                        origGeom.SRID = 32613;
                         origGeom.XD = textElem.get_Origin().X;
                         origGeom.YD = textElem.get_Origin().Y;
                         rotationDegrees = ((Math.Atan2(textElem.get_Rotation().RowY.X,
@@ -250,10 +249,10 @@ namespace PresentacionWFA
                     if (enumTextElem.Current.IsTextElement())
                     {
                         textElem = enumTextElem.Current.AsTextElement();
-                        strWKT = string.Format("'POINT({0} {1})'", 
-                            textElem.get_Origin().X.ToString(), 
+                        strWKT = string.Format("'POINT({0} {1})'",
+                            textElem.get_Origin().X.ToString(),
                             textElem.get_Origin().Y.ToString());
-                        listGeomValue.Add(new KeyValuePair<string,string>(strWKT, textElem.Text));
+                        listGeomValue.Add(new KeyValuePair<string, string>(strWKT, textElem.Text));
                     }
                 }
                 return listGeomValue;
@@ -265,7 +264,7 @@ namespace PresentacionWFA
             }
         }
 
-        private List<string> convertTopoPolygToWKT(ref PolygonLayer polygonLayer,bool apostrofe)
+        private List<string> convertTopoPolygToWKT(ref PolygonLayer polygonLayer, bool apostrofe)
         {
             try
             {
@@ -282,7 +281,7 @@ namespace PresentacionWFA
                         iC = iA.Centroid;
                         if (iC != null)
                         {
-                            Wkt = getEwktFromGeom(ref iA,apostrofe);
+                            Wkt = getEwktFromGeom(ref iA, apostrofe);
                             if (Wkt != string.Empty)
                             {
                                 lstWkt.Add(Wkt);
@@ -309,10 +308,10 @@ namespace PresentacionWFA
             {
                 List<string> lstWkt = new List<string>();
                 string Wkt = string.Empty;
-               
+
                 if (polygonLayer != null)
                 {
-                   foreach(IGeometry pol in polygonLayer)
+                    foreach (IGeometry pol in polygonLayer)
                     {
                         lstWkt.Add(pol.AsText());
                     }
@@ -359,7 +358,13 @@ namespace PresentacionWFA
         private void setOnOffAllLevels(bool OnOff)
         {
             View view;
-            view = this.applicationUstn.ActiveDesignFile.Views[1];
+            try
+            {
+                view = this.applicationUstn.ActiveDesignFile.Views[1];
+            }catch(Exception e)
+            {
+                return;
+            }
 
             foreach (Level lv in this.applicationUstn.ActiveDesignFile.Levels)
             {
@@ -442,13 +447,13 @@ namespace PresentacionWFA
                 PolygonLayer polLayer = this.applicationUstn.CreateObjectInMicroStation("CachedProject.PolygonLayer") as PolygonLayer;
                 polLayer.Name = "polLayer";
                 polLayer.ConsiderHoles = true;
-                
+
                 ElementEnumerator enumerator = this.applicationUstn.ActiveDesignFile.Fence.GetContents(false, true);
-               
+
                 enumerator.Reset();
                 polLayer.AddElements(enumerator);
 
-                
+
                 if (polLayer.Boundaries.Count <= 0)
                 {
                     return null;
@@ -472,7 +477,7 @@ namespace PresentacionWFA
                 //NumberFormatInfo nfi = new CultureInfo("en-US", false).NumberFormat;
                 //nfi.NumberDecimalDigits = 11;
                 //nfi.NumberGroupSeparator = string.Empty;
-                
+
                 ICollection<IGeometry> v_polyg;
                 List<IGeometry> v_lines = new List<IGeometry>();
                 PrecisionModel pm = new PrecisionModel(PrecisionModels.Floating);
@@ -486,13 +491,13 @@ namespace PresentacionWFA
                 while (enumerator.MoveNext())
                 {
                     try
-                    { 
-                        if(enumerator.Current.IsLinear)
+                    {
+                        if (enumerator.Current.IsLinear)
                         {
-                            if (enumerator.Current.AsLineElement().VerticesCount==2)
+                            if (enumerator.Current.AsLineElement().VerticesCount == 2)
                             {
                                 v_lines.Add(rdr.Read(String.Format("LINESTRING({0} {1},{2} {3})",
-                                    Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().EndPoint.X.ToString("R"), decPositions)),9),6),
+                                    Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().EndPoint.X.ToString("R"), decPositions)), 9), 6),
                                     Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().EndPoint.Y.ToString("R"), decPositions)), 9), 6),
                                     Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().StartPoint.X.ToString("R"), decPositions)), 9), 6),
                                     Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().StartPoint.Y.ToString("R"), decPositions)), 9), 6))));
@@ -502,9 +507,9 @@ namespace PresentacionWFA
                                 //    Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().StartPoint.Y.ToString("R"), decPositions)), 9), 6),
                                 //    Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().EndPoint.X.ToString("R"), decPositions)), 9), 6),
                                 //    Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().EndPoint.Y.ToString("R"), decPositions)), 9), 6));
-                                
+
                             }
-                            else 
+                            else
                             {
                                 string s = string.Empty;
                                 for (int i = 0; i < enumerator.Current.AsLineElement().VerticesCount; i++)
@@ -517,35 +522,35 @@ namespace PresentacionWFA
                                     if (s.Length == 0)
                                     {
                                         s += String.Format("{0} {1}",
-                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].X.ToString("R"), decPositions)), 9),6),
-                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].Y.ToString("R"), decPositions)), 9),6)
+                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].X.ToString("R"), decPositions)), 9), 6),
+                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].Y.ToString("R"), decPositions)), 9), 6)
                                             );
                                     }
                                     else
                                     {
                                         s += String.Format(",{0} {1}",
-                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].X.ToString("R"), decPositions)), 9),6),
-                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].Y.ToString("R"), decPositions)), 9),6)
+                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].X.ToString("R"), decPositions)), 9), 6),
+                                            Math.Round(Math.Round(Double.Parse(Trunk(enumerator.Current.AsLineElement().GetVertices()[i].Y.ToString("R"), decPositions)), 9), 6)
                                             );
                                     }
                                 }
                                 v_lines.Add(rdr.Read(String.Format("LINESTRING({0})", s)));
-                               // demo += System.Environment.NewLine +"/*" + k + "*/" + String.Format("insert into demoedges(geom)  (select st_geomfromtext('LINESTRING({0})'));", s);
+                                // demo += System.Environment.NewLine +"/*" + k + "*/" + String.Format("insert into demoedges(geom)  (select st_geomfromtext('LINESTRING({0})'));", s);
                             }
                             //k++;
                         }
                     }
-                       
-                    catch(Exception ex)
+
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                         break;
                     }
                 }
-                if( v_lines.Count()>0)
+                if (v_lines.Count() > 0)
                 {
                     List<string> qrys = new List<string>();
-                    foreach(IGeometry line in v_lines)
+                    foreach (IGeometry line in v_lines)
                     {
                         qrys.Add(string.Format("insert into demoedges(geom)(select st_geomfromtext('{0}'));", line.AsText()));
                     }
@@ -556,7 +561,7 @@ namespace PresentacionWFA
                     polygonizer.Add(v_lines);
 
                     v_polyg = polygonizer.GetPolygons();
-                    if(v_polyg.Count()>0)
+                    if (v_polyg.Count() > 0)
                     {
                         return v_polyg;
                     }
@@ -571,7 +576,7 @@ namespace PresentacionWFA
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return null;
@@ -582,7 +587,7 @@ namespace PresentacionWFA
         {
             int posDec = v1.IndexOf(".");
 
-            return v1.Substring(0, Math.Min((posDec + 1) + v2,v1.Length));
+            return v1.Substring(0, Math.Min((posDec + 1) + v2, v1.Length));
         }
 
         private string getEwktFromGeom(ref IArea iA, bool apostrofe)
@@ -771,9 +776,9 @@ namespace PresentacionWFA
         {
             //(x2-x1)(y2+y1)
             double sum = 0.0;
-            for (int i = 0; i < point3d.Length ; i++)
+            for (int i = 0; i < point3d.Length; i++)
             {
-                sum += (point3d[(i + 1) % point3d.Length].X - point3d[i].X) * 
+                sum += (point3d[(i + 1) % point3d.Length].X - point3d[i].X) *
                     (point3d[(i + 1) % point3d.Length].Y + point3d[i].Y);
             }
             return sum > 0.0;
@@ -804,7 +809,6 @@ namespace PresentacionWFA
         {
             try
             {
-
                 List<LineEntity> lstWktGeom = new List<LineEntity>();
                 LineEntity geom = new LineEntity();
                 LineElement lineElement;
@@ -840,7 +844,7 @@ namespace PresentacionWFA
             LineEntity geom = new LineEntity();
             List<Coord2dEntity> coords = new List<Coord2dEntity>();
             WKTLine wktLine = new WKTLine();
-           Point3d[] vertices = lineElement.GetVertices();
+            Point3d[] vertices = lineElement.GetVertices();
             List<double> secXY = new List<double>();
             if (vertices.Length > 0)
             {
@@ -893,14 +897,12 @@ namespace PresentacionWFA
                 return null;
             }
         }
-        
+
         #endregion
-
-
 
         private Point3d[] getGCoordTransform(Point3d[] point3d, string geomType)
         {
-            int maxVertex=5000;
+            int maxVertex = 5000;
             Element oElement;
 
             Point3d[] ptsArray = null;
@@ -925,7 +927,7 @@ namespace PresentacionWFA
                         Array.Copy(point3d, i, val, 0, maxVertex);
                         splitted.Add(val);
                         cElement = this.applicationUstn.CreateLineElement1(null, ref val);
-                        lCe.Add(cElement.AsChainableElement());   
+                        lCe.Add(cElement.AsChainableElement());
                     }
 
                     if (lCe.Count() > 0)
@@ -947,9 +949,9 @@ namespace PresentacionWFA
                         ElementEnumerator ElemEnum = oElement.AsComplexShapeElement().GetSubElements();
                         while (ElemEnum.MoveNext())
                         {
-                            if(ElemEnum.Current.IsLineElement())
+                            if (ElemEnum.Current.IsLineElement())
                             {
-                                foreach(Point3d vert in ElemEnum.Current.AsLineElement().GetVertices())
+                                foreach (Point3d vert in ElemEnum.Current.AsLineElement().GetVertices())
                                 {
                                     listInterna.Add(vert);
                                 }
@@ -982,7 +984,5 @@ namespace PresentacionWFA
                 return null;
             }
         }
-
-     
     }
 }

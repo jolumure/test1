@@ -4,48 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PresentacionWFA.Data;
+using System.Reflection;
+using System.IO;
 
 namespace PresentacionWFA
 {
     class levelsController
     {
         #region Variables
-       
+
         #endregion
-        
+
         #region Constructor
-        
+
         #endregion
 
         #region Methods
-
-        internal themes readLevelNames()
-        {
-            string fileDataPath = @"Data\levelNames.xml";
-            try
-            {
-                if (System.IO.File.Exists(fileDataPath))
-                {
-
-                    themes themesLevels = new themes();
-                    System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(themesLevels.GetType());
-                    System.IO.StreamReader file = new System.IO.StreamReader(fileDataPath);
-                    themesLevels = (themes)reader.Deserialize(file);
-
-                    return themesLevels;
-
-                }
-                else
-                {
-                    return null;
-                }
-            }
-
-            catch
-            {
-                return null;
-            }
-        }
 
         internal string getTypeFeature(string feature, themes themes)
         {
@@ -83,28 +57,15 @@ namespace PresentacionWFA
         //Lee un archivo xml y crea en base a los datos contenidos en el, un objeto themes
         internal themes readLevelCategories()
         {
-            string fileDataPath = @"Data\categoriesNames.xml";
-            try
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"PresentacionWFA.Data.categoriesNames.xml"))
             {
-                if (System.IO.File.Exists(fileDataPath)) //Me marca Falso 
+                using (StreamReader file = new StreamReader(stream))
                 {
-
                     themes themesLevels = new themes();
                     System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(themesLevels.GetType());
-                    System.IO.StreamReader file = new System.IO.StreamReader(fileDataPath);
                     themesLevels = (themes)reader.Deserialize(file);
-
                     return themesLevels;
-
                 }
-                else
-                {
-                    return null;
-                }
-            }
-            catch
-            {
-                return null;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using HTTPService;
+﻿using Entity_Temp;
+using HTTPService;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,9 +12,22 @@ namespace FL
 {
     public class ETEPSG
     {
-        public string getEPSGE(string concepto, string texto, string host, string puerto)
+        public IEnumerable<EPSGEntity> getEPSGE(string concepto, string texto)
         {
-            return new Requests(host, puerto).getEPSG(concepto, texto);
+            try
+            {
+                return Requests.getEPSG(concepto, texto).Result;
+            }
+            catch (AggregateException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
         }
     }
 }

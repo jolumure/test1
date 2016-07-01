@@ -31,7 +31,8 @@ namespace WASiGeMun
             }
             Configuration = builder.Build();
             //ConnectionString = Configuration.Get<string>("Data:LocalPostgresConection:ConnectionString"); //Jeciel
-            ConnectionString = Configuration.Get<string>("Data:LocalPostgresConection:ConnectionStringDevel"); //Jeciel
+            //ConnectionString = Configuration.Get<string>("Data:LocalPostgresConection:ConnectionStringDevel"); //Jeciel
+            ConnectionString = Configuration.Get<string>("Data:LocalPostgresConection:ConnectionString"); 
 
             string netBase = Path.GetFullPath(Path.Combine(RuntimeEnvironment.GetRuntimeDirectory(), @"..\.."));
             Dir_tmp__32 = string.Concat(netBase, @"\Framework\", RuntimeEnvironment.GetSystemVersion(), @"\Temporary ASP.NET Files");

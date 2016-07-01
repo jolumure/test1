@@ -12,6 +12,22 @@
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Warrior\Documents\PROYECTO\SigEmun\Aplicacion\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,64 +38,111 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>14396790451C8189390FFDCC1F496857DC63D5D8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PresentacionWFA_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bentley.Geospatial.Interop.XFT">
-      <HintPath>refBentley\Bentley.Geospatial.Interop.XFT.dll</HintPath>
+      <HintPath>..\refBentley\Bentley.Geospatial.Interop.XFT.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Bentley.Interop.GFC">
-      <HintPath>refBentley\Bentley.Interop.GFC.dll</HintPath>
+      <HintPath>..\refBentley\Bentley.Interop.GFC.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Bentley.Interop.GFC.CachedProject">
-      <HintPath>refBentley\Bentley.Interop.GFC.CachedProject.dll</HintPath>
+      <HintPath>..\refBentley\Bentley.Interop.GFC.CachedProject.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="bentley.interop.microstationdgn">
-      <HintPath>refBentley\bentley.interop.microstationdgn.dll</HintPath>
+      <HintPath>..\refBentley\bentley.interop.microstationdgn.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="GeoAPI, Version=1.7.0.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.dll</HintPath>
+    <Reference Include="Bentley.Interop.Xft">
+      <HintPath>..\refBentley\Bentley.Interop.Xft.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>refBentley\Ionic.Zip.dll</HintPath>
+    <Reference Include="GeoAPI">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.dll</HintPath>
     </Reference>
-    <Reference Include="NetTopologySuite, Version=1.13.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.dll</HintPath>
+    <Reference Include="Interop.MicroStationDGN">
+      <HintPath>..\refBentley\Interop.MicroStationDGN.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="NetTopologySuite.IO.GDB, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GDB.dll</HintPath>
+    <Reference Include="Interop.xft">
+      <HintPath>..\refBentley\Interop.xft.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="NetTopologySuite.IO.GeoTools, Version=1.13.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\refBentley\Ionic.Zip.dll</HintPath>
     </Reference>
-    <Reference Include="NetTopologySuite.IO.ShapeFile, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.SqlServer.Types, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
-    <Reference Include="NetTopologySuite.IO.SpatiaLite, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SpatiaLite.dll</HintPath>
+    <Reference Include="NetTopologySuite">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GDB">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GDB.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.PostGis.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.SpatiaLite">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SpatiaLite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.SqlServer2008">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SqlServer2008.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\PowerCollections.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -88,7 +151,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -96,14 +158,10 @@
     <Compile Include="Controller\EPSGController.cs" />
     <Compile Include="Controller\filesController.cs" />
     <Compile Include="Controller\levelsController.cs" />
+    <Compile Include="Controller\LogController.cs" />
     <Compile Include="Controller\SQLFormatController.cs" />
     <Compile Include="Controller\UstnController.cs" />
     <Compile Include="Data\themes.cs" />
-    <Compile Include="Entity_temp\Coord2dEntity.cs" />
-    <Compile Include="Entity_temp\DgnFileEntity.cs" />
-    <Compile Include="Entity_temp\EPSGEntity.cs" />
-    <Compile Include="Entity_temp\LineEntity.cs" />
-    <Compile Include="Entity_temp\PointTextEntity.cs" />
     <Compile Include="Extractor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +170,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\WCFServSiGeMun\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Extractor.resx">
       <DependentUpon>Extractor.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +183,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,78 +193,55 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.wsdl" />
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entity_Temp\Entity_Temp.csproj">
+      <Project>{01591e16-e872-4d72-b743-7b0b11c8794c}</Project>
+      <Name>Entity_Temp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FL\FL.csproj">
       <Project>{5879f580-24b9-4071-abf3-9647734b48a8}</Project>
       <Name>FL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\refBentley\refBentley.csproj">
+      <Project>{2e7c7c11-e10a-4fa5-aaa6-4ec850f974d0}</Project>
+      <Name>refBentley</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\categoriesNames.xml">
+    <EmbeddedResource Include="Data\categoriesNames.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Content Include="Data\levelNames.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="refBentley\Ionic.Zip.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\GeoAPI.XML" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\Microsoft.SqlServer.Types.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GDB.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GDB.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GeoTools.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.GeoTools.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.MsSqlSpatial.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.MsSqlSpatial.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.PostGis.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.PostGis.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.ShapeFile.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.ShapeFile.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SpatiaLite.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SpatiaLite.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SqlServer2008.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.IO.SqlServer2008.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.pdb" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\NetTopologySuite.XML" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\PowerCollections.dll" />
-    <Content Include="refBentley\NTS-v1-13-0\v4.0.3\AnyCPU\PowerCollections.XML" />
-    <Content Include="refBentley\Standalone\Bentley.Interop.GFC.CachedProject.dll" />
-    <Content Include="refBentley\Standalone\Bentley.Interop.GFC.dll" />
-    <Content Include="refBentley\Standalone\bentley.interop.microstationdgn.dll" />
-    <Content Include="refBentley\Standalone\Bentley.Interop.Xft.dll" />
-    <Content Include="refBentley\Standalone\xfmcore.dll" />
-    <None Include="Service References\WCFServSiGeMun\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\WCFServSiGeMun\configuration.svcinfo" />
-    <None Include="Service References\WCFServSiGeMun\configuration91.svcinfo" />
-    <None Include="Service References\WCFServSiGeMun\WcfServSiGeMun.disco" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WCFServSiGeMun\" />
+    <Folder Include="bin\Debug\Data\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

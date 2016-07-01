@@ -55,20 +55,21 @@ namespace WASiGeMun.Controllers
         }
 
         [HttpPost]
-        [Route("api/putshp/{p1}/{p2}/{p3}")]
-        public IActionResult putshp(IFormFile file, string nombreFature,string EPSGOrig,string EPSGDest)
+        [Route("api/putshp/{departamento}/{nombreFeature}/{EPSGOrig}/{EPSGDest}")]
+        //
+        public IActionResult putshp(IFormFile file, string departamento, string nombreFeature, string EPSGOrig, string EPSGDest)
         {
             try
             {
-                SHPInfo shpInfo = new SHPInfo();
+                SHPResultInsert result = new SHPResultInsert();
                 var uploads = Path.Combine(Startup.Dir_tmp__32);
                 if (file.Length > 0)
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
                     file.SaveAs(Path.Combine(uploads, fileName));
-                    shpInfo = this.servicio.putshp(Path.Combine(uploads, fileName), nombreFature,EPSGOrig,EPSGDest);
+                    result = this.servicio.putshp(Path.Combine(uploads, fileName), departamento, nombreFeature, EPSGOrig, EPSGDest);
                 }
-                return new ObjectResult(shpInfo.ToJSON());
+                return new ObjectResult(result.ToJSON());
             }
             catch (Exception ex)
             {

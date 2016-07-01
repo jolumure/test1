@@ -24,7 +24,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FL.WCFServSiGeMun;
 using System.Net;
 using System.Net.Http;
 using HTTPService;
@@ -88,9 +87,22 @@ namespace FL
              //return serv.InsertScript(s);
         }*/
 
-        public void insertScript(string nombre, string path, Byte[] Bzip, string puerto, string host)
+        public bool insertScript(Byte[] Bzip)
         {
-            new Requests(puerto, host).insertScript(path + "/" + nombre, Bzip.Length);
+            try
+            {
+                return Requests.insertScript(Bzip).Result;
+            }
+            catch (AggregateException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
     }
 }
