@@ -37,7 +37,6 @@ namespace Entity
 
     }
 
-
     public class SHPResultInsert
     {
         public SHPResultInsert()

@@ -224,6 +224,13 @@ namespace DAL
                             }
                         }
                         resultJSON.observaciones.Add("Número de geometrías ingresadas :: " + nGeoms.ToString());
+                        //Si es correcto todo, se crea la vista v_id_feature numeric, v_geom_type text,str_view text
+                        int boolVista = ProcessSQLReturnID(string.Format("select pkg__createview_feature({0},'{1}','{2}')", idFeature, shp.info.tipo, "v_" + nombreFeature));
+                        if(boolVista==0)
+                        {
+                            resultJSON.observaciones.Add("No se pudo crear la vista correctamente");
+                            resultJSON.nombreVista = string.Empty;
+                        }
                     }
                 }
                 return resultJSON;
